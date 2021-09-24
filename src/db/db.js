@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const dbURL = 'mongodb+srv://mubin:mubin1234@webtec101.p4bju.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+const dbURL = process.env.DB_URI;
 if (!dbURL) {
   console.error('Mongo URL not set in env file or config.js');
   return new Error('Mongo URL not set in env file or config.js');
