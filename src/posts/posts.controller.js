@@ -1,15 +1,36 @@
-const postService = require('./posts.service');  //because we will be creating post thus need help of database
+const postService = require('./posts.service');
 
-module.exports.skeleton = function(req,res,next){
-    res.json({"message": "hello world"})
-}
+module.exports.createPosts = async function (req, res) {
+  const blog = req.body;
+  const createdBlog = await postService.createPost(blog);
+  return res.json(createdBlog);
+};
 
-module.exports.getHelloworld = function(req,res,next){
-    const message = 'hello' + req.body.name;
-    res.json({"message": message});
-}
+module.exports.getPosts = async function (req, res) {
+  const posts = await postService.getPosts();
+  return res.json(posts);
+};
 
-module.exports.createBlog = function(req,res,next){
-    res.json({"message": "hello world"})
-}
+module.exports.getPostById = async function (req, res) {
+  const postId = req.params.id;
+  const post = await postService.getPostById(postId);
+  return res.json(post);
+};
 
+module.exports.updatePostById = async function (req, res) {
+  const postId = req.params.id;
+  const update = req.body;
+  const post = await postService.updatePostById(postId, update);
+  return res.json(post);
+};
+module.exports.deletePostById = async function (req, res) {
+  const postId = req.params.id;
+  const post = await postService.deletePostById(postId);
+  return res.json(post);
+};
+
+//homePage frontend 
+module.exports.getHome = async function (req, res) {
+  res.render('homePage');
+  //res.send('<h1>hey guys</h1>');
+};
