@@ -14,11 +14,7 @@ require('./db/db');
 
 // view engine setup
 app.set('view engine', 'ejs');    
-app.set('views', './views');
-
-app.get('/', function(req, res) {
-  res.render('homePage');
-});
+app.set('views', __dirname + '/views');
 
 
 // Takes the raw requests and turns them into usable properties on req.body
