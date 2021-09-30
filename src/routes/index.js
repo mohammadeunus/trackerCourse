@@ -1,20 +1,25 @@
 const express = require('express');
 const router = express.Router();
+const postController = require('../posts/posts.controller');
+const userController = require('../user/user.controller');
+// const postMiddleware = require('../posts/posts.middleware');
 
-const postControllers = require('../posts/posts.controller');
-//const postMiddleware = require('../posts/posts.middleware');
-// const userController = require('../user/user.controller');
+router.get('/check', function(req, res) { 
+  return res.json({ message: 'App is running'});
+});
 
-router.get('/', postControllers.getHome);
-router.post('/posts', postControllers.createPosts);    //error showing
-router.get('/posts', postControllers.getPosts);
-router.get('/posts/:id', postControllers.getPostById);
-router.put('/posts/:id', postControllers.updatePostById);
-router.delete('/posts/:id', postControllers.deletePostById);
+//unAuthenticated access
+router.get('/posts', postController.getPosts);
+router.get('/posts/:id', postController.getPostById);
+
+//post,update or delete comment
+//Authenticated access
+router.post('/posts', userController.isAuthenticated, postController.createPosts);
+router.put('/posts/:id', userController.isAuthenticated,postController.updatePostById);
+router.delete('/posts/:id', userController.isAuthenticated,postController.deletePostById);
+
+//get homePage
+router.get('/', postController.getHomePage);
 
 
-/* creating a blog */
-router.get('/post', );
 module.exports = router;
-
-

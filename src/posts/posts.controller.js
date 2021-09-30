@@ -29,7 +29,6 @@ module.exports.deletePostById = async function (req, res) {
   return res.json(post);
 };
 
-//homePage frontend 
-module.exports.getHome = async function (req, res) {
+module.exports.getHomePage = async function (req, res) {
   res.render('homePage');
 };

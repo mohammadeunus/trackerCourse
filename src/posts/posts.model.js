@@ -1,5 +1,3 @@
-/* eslint-disable */ 
-
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
@@ -10,11 +8,11 @@ const postSchema = new Schema({
   },
   body: {
     type: String,
-    required: false,
+    required: true,
   },
   category: {
     type: String,
-    required: false,
+    required: true,
   },
   author: {
     type: String,

@@ -1,4 +1,3 @@
-/* eslint-disable */ 
 module.exports.logRequest = function (req, res, next) {
   console.log(req.headers);
   if(req.body){
