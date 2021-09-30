@@ -84,7 +84,7 @@ const comparePassword = (password, hash) => {
 
 module.exports.login = async (req, res) => {
   try {
-    const user = await userService.findUserByEmail(req.body.email);
+    const user = await userService.findUserByName(req.body.name);
     const matchPassword = await comparePassword(
       req.body.password,
       user.password

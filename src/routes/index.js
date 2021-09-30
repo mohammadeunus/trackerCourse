@@ -4,8 +4,9 @@ const postController = require('../posts/posts.controller');
 const userController = require('../user/user.controller');
 // const postMiddleware = require('../posts/posts.middleware');
 
-router.get('/check', function(req, res) { 
-  return res.json({ message: 'App is running'});
+//error page
+router.get('/error', function(req, res) { 
+  res.render('error');
 });
 
 //unAuthenticated access
@@ -19,7 +20,9 @@ router.put('/posts/:id', userController.isAuthenticated,postController.updatePos
 router.delete('/posts/:id', userController.isAuthenticated,postController.deletePostById);
 
 //get homePage
-router.get('/', postController.getHomePage);
+router.get('/', function(req, res) { 
+  res.render('homePage');
+});
 
 
 module.exports = router;
