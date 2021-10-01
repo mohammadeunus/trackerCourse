@@ -24,4 +24,21 @@ const postSchema = new Schema({
   versionKey: false,
 });
 
+/*
+//Schema for both Course and Project details 
+const DetailsSchema = new Schema({
+  
+  body: {
+    type: String,
+    required: true,
+  },
+},
+{
+  timestamps: true,
+  versionKey: false,
+});
+*/
+
+
+
 module.exports = mongoose.model('Post', postSchema);
