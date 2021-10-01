@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 
 const dbURL = process.env.DB_URI;
+const dburll= dbURL.toString().substring(14,20);
+ 
 if (!dbURL) {
   console.error('Mongo URL not set in env file or config.js');
   return new Error('Mongo URL not set in env file or config.js');
@@ -17,7 +19,7 @@ mongoose.connect(
     if (error) {
       console.error(`FAILED to connect using mongoose. ${error}`);
     } else {
-      console.info(`Connected to DB server. ( ${dbURL} )`);
+      console.info(`Connected to DB server of userName: ( ${dburll} )`);
     }
   }
 );

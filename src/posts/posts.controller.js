@@ -32,3 +32,5 @@ module.exports.deletePostById = async function (req, res) {
 module.exports.getHomePage = async function (req, res) {
   res.render('homePage');
 };
+
+

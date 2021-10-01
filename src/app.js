@@ -23,6 +23,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static('public')); // since every file inside public/css is static; and used it for frontend 
 //app.use(express.urlencoded({ extended: false }));
 
+
  
 
 app.use('/', indexRouter);
