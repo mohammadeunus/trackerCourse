@@ -1,4 +1,5 @@
-const postService = require('./posts.service');
+const postService = require('./posts.service'); 
+
 
 module.exports.createPosts = async function (req, res) {
   const blog = req.body;
@@ -29,8 +30,22 @@ module.exports.deletePostById = async function (req, res) {
   return res.json(post);
 };
 
+
+
+
+// ProjectDetails and CourseDetails 
 module.exports.getHomePage = async function (req, res) {
-  res.render('homePage');
+  const postId= ({},function(err, details) {
+    res.render('homePage',{
+      DetailsList: details   
+    });            
+  }) ;
+  postService.getCourseDetails(postId);
 };
 
-
+module.exports.createPostsCourseDetails = async function (req, res) {
+  const blog = req.body;
+  const createdBlog = await postService.createPostsCourseDetails(blog);
+  return res.json(createdBlog);
+  
+};

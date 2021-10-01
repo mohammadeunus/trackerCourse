@@ -1,4 +1,8 @@
 const Post = require('./posts.model');
+const modelDetails = require('./details.model');
+
+
+
 
 module.exports.createPost = async function (blog) {
   return Post.create(blog);
@@ -19,3 +23,14 @@ module.exports.updatePostById = async function (postId, update) {
 module.exports.deletePostById = async function (postId) {
   return Post.findByIdAndDelete(postId);
 };
+
+
+// ProjectDetails and CourseDetails 
+module.exports.getCourseDetails = async function (postId) {
+  return modelDetails.find(postId);
+};
+
+module.exports.createPostsCourseDetails = async function (blog) {
+  return modelDetails.create(blog);
+};
+
