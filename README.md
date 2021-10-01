@@ -2,7 +2,7 @@
 
 heroku site address
 <br> </br>
-webtec101.herokuapp.com/
+[webtec101.herokuapp.com](webtec101.herokuapp.com/)
 <br> </br>
 Project for CSE 480
 <br> </br>
