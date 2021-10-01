@@ -208,13 +208,18 @@
                         <div class="container">
                           <ul id="todo"></ul>
                           <ul id="projectDetailsList" style="font: size 5px">
+                            <!------
                             <li>
-                              
                               <input type="text" id="newText" placeholder="Create new todo!!" spellcheck="false" autocomplete="off" onkeypress="submitOnEnter(event)">
                               <button onclick="add()" id="button"> + </button>
                               <button onclick="add()" id="button"> x </button>
                             </li>
-                            <li style="color:rgb(255, 255, 255)">Coffee</li>
+                            ----->
+                            
+                            <%DetailsList.forEach(movie => {%>
+                              <li style="color:rgb(255, 255, 255)"><%= movie.body %></li>
+                            <%})%>
+                          
                           </ul>
                         </div>
                       
