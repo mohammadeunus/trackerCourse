@@ -129,11 +129,9 @@
                   <tr>
                     <td>
 
-                      <p>
-                        <font face="arial" size="3" color="#c2c0c3">
-                          Lorem ipsum  nisi.
-                        </font>
-                      </p>
+                            <%DetailsList.forEach(movie => {%>
+                              <li style="color:rgb(255, 255, 255)"><%= movie.body %></li>
+                            <%})%>
 
                       <hr noshade />
                       <br />
@@ -214,7 +212,7 @@
                               <button onclick="add()" id="button"> + </button>
                               <button onclick="add()" id="button"> x </button>
                             </li>
-                            ----->
+                            
                             
                             <%DetailsList.forEach(movie => {%>
                               <li style="color:rgb(255, 255, 255)"><%= movie.body %></li>
@@ -222,7 +220,7 @@
                           
                           </ul>
                         </div>
-                      
+                      ----->
                       <!------- main works ends here -------->
                       
                       <hr noshade />                      
