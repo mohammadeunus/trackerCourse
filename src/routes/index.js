@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const postController = require('../posts/posts.controller');
 const userController = require('../user/user.controller');
+const projectController = require('../projects/projects.controller');
 // const postMiddleware = require('../posts/posts.middleware');
 
 
@@ -13,6 +14,7 @@ router.get('*', function(req, res){
   res.status(404,'page not found');
   res.render('error');
 });
+
 //without authentication
 router.get('/posts', postController.getPosts);
 router.get('/posts/:id', postController.getPostById);
@@ -21,8 +23,10 @@ router.get('/posts/:id', postController.getPostById);
 //post,update or delete comment
 //need authentication access
 router.post('/posts', userController.isAuthenticated, postController.createPosts);
+router.get('/posts', userController.isAuthenticated, postController.createPosts);
 router.put('/posts/:id', userController.isAuthenticated,postController.updatePostById);
 router.delete('/posts/:id', userController.isAuthenticated,postController.deletePostById);
+
 
 
 //post update or delete Course Details 
@@ -32,14 +36,16 @@ router.post('/CourseDetails',  postController.createPostsCourseDetails);
 /*
 router.put('/CourseDetails/:id', postController.updatePostById);
 router.delete('/CourseDetails/:id',postController.deletePostById);
+ */
+
 
 
 //post update or delete project Details 
 //without authentication
-router.get('/projectDetailsPosts', postController.getPosts);
-router.post('/projectDetailsPosts',  postController.createPosts);
-router.put('/projectDetailsPosts/:id', postController.updatePostById);
-router.delete('/projectDetailsPosts/:id',postController.deletePostById);
-*/
+router.get('/projectDetailsPosts', projectController.getProjects);
+router.post('/projectDetailsPosts',  projectController.createProject);
+router.put('/projectDetailsPosts/:id', projectController.updateProjectById);
+router.delete('/projectDetailsPosts/:id',projectController.deleteProjectById);
+
 
 module.exports = router;
