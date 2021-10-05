@@ -10,15 +10,11 @@ const projectController = require('../projects/projects.controller');
 router.get('/', postController.getHomePage);
 
 //error page
-/* router.get('*', function(req, res){
+router.get('*', function(req, res){
   res.status(404,'page not found');
   res.render('error');
-<<<<<<< Updated upstream
 });
-=======
-}); */
 
->>>>>>> Stashed changes
 //without authentication
 router.get('/posts', postController.getPosts);
 router.get('/posts/:id', postController.getPostById);
@@ -32,7 +28,7 @@ router.put('/posts/:id', userController.isAuthenticated,postController.updatePos
 router.delete('/posts/:id', userController.isAuthenticated,postController.deletePostById);
 
 
-<<<<<<< Updated upstream
+
 //post update or delete Course Details 
 //without authentication
 router.get('/CourseDetails', postController.getHomePage);
@@ -40,16 +36,8 @@ router.post('/CourseDetails',  postController.createPostsCourseDetails);
 /*
 router.put('/CourseDetails/:id', postController.updatePostById);
 router.delete('/CourseDetails/:id',postController.deletePostById);
-=======
-//--------
+ */
 
-/* //post update or delete Course Details 
-//without authentication
-router.get('/CourseDetails', postController.getPosts);
-router.post('/CourseDetailsPosts',  postController.createPosts);
-router.put('/CourseDetailsPosts/:id', postController.updatePostById);
-router.delete('/CourseDetailsPosts/:id',postController.deletePostById); */
->>>>>>> Stashed changes
 
 
 //post update or delete project Details 
