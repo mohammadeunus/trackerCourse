@@ -31,7 +31,7 @@ router.delete('/posts/:id', userController.isAuthenticated,postController.delete
 
 //post update or delete Course Details 
 //without authentication
-router.get('/CourseDetails', postController.getHomePage);
+router.get('/CourseDetails', postController.getCourse);
 router.post('/CourseDetails',  postController.createPostsCourseDetails);
 /*
 router.put('/CourseDetails/:id', postController.updatePostById);

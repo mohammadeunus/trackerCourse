@@ -13,4 +13,4 @@ const DetailsSchema = new Schema(
     versionKey: false,
   }
 );
-module.exports = mongoose.model('Details', DetailsSchema); 
+module.exports = mongoose.model('course', DetailsSchema); 
